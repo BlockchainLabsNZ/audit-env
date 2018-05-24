@@ -4,12 +4,17 @@
 
 ## Prerequisites
 
-We assume you have these installed/used:
+- Smart contracts
+- [Docker](https://docs.docker.com/install) installed and running (as a daemon)
+
+
+<br>
+
+## Typical environment we use for testing
 
 - Environment
 	- Ethereum blockchain
 	- Solidity, Truffle
-	- Docker ([install it](https://docs.docker.com/install))
 	- Mocha/Chai as testing framework
 	
 - Projects folders 	
@@ -40,7 +45,7 @@ We assume you have these installed/used:
 		> Press `Cntrl-D` to exit container.
 
 
-Each run of these commands will create new Docker container, copy your contracts and tests from the project directory to the container’s volume and then run tests in our typical testing environment. Containers are self destroing on exit.
+Each run of these commands will create new Docker container, copy your contracts and tests from the project directory to the container’s volume and then run tests in our typical testing environment. Containers are self destroying on exit.
 
  
 <br>
@@ -51,25 +56,27 @@ If your tests are not working in our environment, we need to figure out *Why* an
 It will take some time. You can save that (paid) time and update the configuration by yourself:
 
 1. Go to the `/docker` folder.
-- Update the `package.json` with new dependencies from **your** `package.json`, but keep it clean from unused dependencies (such as webded packages, webpack configs and so on).
+- Update the `package.json` with new dependencies from **your** `package.json`, but keep it clean from unused dependencies (such as frontend packages, webpack configs and so on).
 - Check *dockerfile* and update it if needed.
 - Build new docker image: `docker build -t yourcompanyname/projectname` from **`/docker` folder**.
 - Check that new Docker image is ready by running it in your **project folder**: `docker run --rm -it -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test yourcompanyname/projectname` with parameters you need.
-- Add new npm script commands with all switches for `docker run ...` to the `package.json` in **this folder**
 
 
 <br>
 
-## Sending us your configuration
+## Send us your configuration
 
-We will rebuild the Docker image, so please send us:
+We will rebuild the Docker image by ourselves, so please send us:
 
 - `dockerfile`
-- `package.json` - only dependencies for the testing, not all of your dependencies and, probably, commands
+- `package.json` 
+	- only dependencies for the testing, not all of your dependencies
+	- your `package.json` scripts section
 - `truffle.js` with your network congiguration
 
-Push it to the Github if you forked this repo before (or just archive it).
-Send us commit number (or .zip file)
+Push it back to the Github if you forked this repo before or achive it with zip/tar.
+
+Send us the link to that commit (or .zip file)
 
 
 
