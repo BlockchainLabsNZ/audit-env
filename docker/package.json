@@ -1,0 +1,39 @@
+{
+  "name": "dynamic-testing-env",
+  "version": "0.1.0",
+  "description": "Basic dynamic testing environment",
+  "devDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "bignumber.js": "^5.0.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "^2.0.2",
+    "coveralls": "^3.0.1",
+    "ethereumjs-abi": "^0.6.4",
+    "ethereumjs-testrpc": "^6.0.3",
+    "ethereumjs-util": "^5.2.0",
+    "eth-gas-reporter": "^0.1.5",
+    "ganache-cli": "^6.1.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "solidity-coverage": "^0.5.2",
+    "truffle": "^4.1.8",
+    "openzeppelin-solidity": "^1.9.0"
+  },
+  "scripts": {
+    "node": "ganache-cli --gasLimit 8000000 --port 8545 -h 0.0.0.0",
+    "build": "truffle compile && truffle migrate",
+    "test": "scripts/test.sh",
+    "coverage": "scripts/coverage.sh"
+  },
+  "keywords": [
+    "audit",
+    "Blockchain",
+    "BlockchainLabsNZ"
+  ],
+  "author": "Blockchain Labs, NZ",
+  "license": "ISC"
+}

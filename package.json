@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "blaTest": "docker run --rm -a STDOUT -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test nzblabs/dynamic-testing npm run test",
+    "blaCoverage": "docker run --rm -a STDOUT -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test nzblabs/dynamic-testing npm run coverage",
+    "blaInteractive": "docker run --rm -it -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test nzblabs/dynamic-testing"
+  }
+}
