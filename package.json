@@ -1,9 +1,18 @@
 {
+  "name": "audit-env",
+  "version": "0.1.1",
+  "description": "This is specific environment we use for running Solidity tests in the form of a Docker image that you can download and run on your project.",
   "scripts": {
     "blaTest": "docker run --rm -a STDOUT -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test nzblabs/dynamic-testing",
     "blaCoverage": "docker run --rm -a STDOUT -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test nzblabs/test-coverage",
     "blaGas": "docker run --rm -a STDOUT -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test nzblabs/gas-report",
     "blaPlay": "docker run --rm -it -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test nzblabs/test-play",
     "blaAll": "sh testAll.sh"
-  }
+  },
+  "keywords": [
+	"audit",
+    "Blockchain",
+    "BlockchainLabsNZ"
+  ],
+  "author": "Blockchain Labs, NZ",
 }

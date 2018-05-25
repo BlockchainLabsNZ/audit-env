@@ -1,6 +1,6 @@
 {
   "name": "dynamic-testing-env",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Basic dynamic testing environment",
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
