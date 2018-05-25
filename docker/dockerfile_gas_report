@@ -1,0 +1,7 @@
+FROM nzblabs/dynamic-testing:latest
+
+MAINTAINER Blockchain Labs, NZ (Alex Tikonoff, alex@blockchainlabs.nz)
+
+COPY truffle_gas_report.js $DIR/truffle.js
+
+ENTRYPOINT ["npm", "run", "test"]

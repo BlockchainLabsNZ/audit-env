@@ -1,0 +1,6 @@
+FROM nzblabs/dynamic-testing:latest
+
+MAINTAINER Blockchain Labs, NZ (Alex Tikonoff, alex@blockchainlabs.nz)
+
+RUN apt-get update && apt-get install -y nano vim \
+    && apt-get -y autoclean

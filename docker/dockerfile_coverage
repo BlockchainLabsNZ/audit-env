@@ -1,0 +1,5 @@
+FROM nzblabs/dynamic-testing:latest
+
+MAINTAINER Blockchain Labs, NZ (Alex Tikonoff, alex@blockchainlabs.nz)
+
+ENTRYPOINT ["npm", "run", "coverage"]

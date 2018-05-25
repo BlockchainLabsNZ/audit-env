@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER Blockchain Labs, NZ (Alex Tikonoff, alex@blockchainlabs.nz)
 
-RUN apt-get update && apt-get install -y curl git python build-essential netcat nano vim \
+RUN apt-get update && apt-get install -y curl git python build-essential netcat \
     && apt-get -y autoclean
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash    
@@ -19,3 +19,5 @@ RUN npm install
 
 EXPOSE 8545
 EXPOSE 8555
+
+ENTRYPOINT ["npm", "run", "test"]
