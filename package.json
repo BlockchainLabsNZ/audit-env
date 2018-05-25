@@ -4,6 +4,6 @@
     "blaCoverage": "docker run --rm -a STDOUT -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test nzblabs/test-coverage",
     "blaGas": "docker run --rm -a STDOUT -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test nzblabs/gas-report",
     "blaPlay": "docker run --rm -it -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test nzblabs/test-play",
-    "blaAllSync": "npm run blaTest > dynamic-testing.txt & npm run blaCoverage > test-coverage.txt & npm run blaGas > gas-spending.txt"
+    "blaAll": "sh testAll.sh"
   }
 }

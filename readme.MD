@@ -38,6 +38,7 @@ This is specific environment we use for running Solidity tests in the form of a 
 
 1. Download/clone/fork this repository.
 - Copy `npm` commands from this repo's `package.json` to your project.
+- Copy `testAll.sh` from this repo to your project.
 - Go to you project folder that contains `/contracts` and `/test` folders.
 	- Run `npm run blaTest` for dynamic testing
 	- Run `npm run blaCoverage` for test coverage report

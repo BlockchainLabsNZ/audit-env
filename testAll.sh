@@ -1,22 +1,34 @@
 #!/bin/bash
-  echo "Dynamic testing started";
-  npm run blaTest > audit/dynamic-testing.txt & pid=$!
-  PID_LIST+=" $pid";
 
-  echo "Test coverage started";
-  npm run blaCoverage > audit/test-coverage.txt & pid=$!
-  PID_LIST+=" $pid";
+mkdir -p audit
 
-  echo "Gas spending analysis started";
-  npm run blaGas > audit/gas-spending.txt & pid=$!
-  PID_LIST+=" $pid";
+spinner()
+{
+    local pid=$!
+    local delay=0.75
+    local spinstr='|/-\'
+    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        local temp=${spinstr#?}
+        printf " [%c]  " "$spinstr"
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+        printf "\b\b\b\b\b\b"
+    done
+    printf "    \b\b\b\b"
+}
+
+echo "Test coverage analysis started";
+docker run --rm -a STDOUT -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test nzblabs/test-coverage > audit/test-coverage.txt & pid=$!
+PID_LIST+=" $pid";
+
+echo "Gas spending analysis started";
+docker run --rm -a STDOUT -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test nzblabs/gas-report > audit/gas-report.txt & pid=$!
+PID_LIST+=" $pid";
 
 
 trap "kill $PID_LIST" SIGINT
 
-echo "Parallel tests have started";
-
-wait $PID_LIST
+spinner & wait $PID_LIST
 
 echo
-echo "All reports have done";
+echo "All reports have done.";
