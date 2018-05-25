@@ -41,6 +41,8 @@ This is specific environment we use for running Solidity tests in the form of a 
 - Go to you project folder that contains `/contracts` and `/test` folders.
 	- Run `npm run blaTest` for dynamic testing
 	- Run `npm run blaCoverage` for test coverage report
+	- Run `npm run blaGas` for gas spending report
+	- Run `npm run blaAll`  for simultaneous testing. Results will be printed to the same named files in the  `/audit` folder
 	- Run `npm run blaPlay` to have your playground inside the container
 		
 		> There are VI and nano editors installed, so, feel free to change something, help yourself, its all yours. <br>
@@ -70,11 +72,11 @@ It will take some time. You can save that (paid) time and update the configurati
 
 We will rebuild the Docker image by ourselves, so please send us:
 
-- `dockerfile`
+- `dockerfile` (or files)
 - `package.json` 
 	- only dependencies for the testing, not all of your dependencies
 	- your `package.json` scripts section
-- `truffle.js` with your network congiguration
+- `truffle.js` with your networks congiguration
 
 Push it back to the Github if you forked this repo before or achive it with zip/tar.
 
