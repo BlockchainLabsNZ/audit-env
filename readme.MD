@@ -1,7 +1,5 @@
 # Testing Env for your Smart Contracts Audit
 
-v. 0.1.1
-
 This is specific environment we use for running Solidity tests in the form of a Docker image that you can download and run on your project.
 
 <br>
