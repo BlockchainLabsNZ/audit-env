@@ -63,7 +63,7 @@ It will take some time. You can save that (paid) time and update the configurati
 1. Go to the `/docker` folder.
 - Update the `package.json` with new dependencies from **your** `package.json`, but keep it clean from unused dependencies (such as frontend packages, webpack configs and so on).
 - Check *dockerfile* and update it if needed.
-- Build new docker image: `docker build -t yourcompanyname/projectname` from **`/docker` folder**.
+- Build new docker image: `docker build -t yourcompanyname/projectname .` from **`/docker` folder**. (don't forget ".")
 - Check that new Docker image is ready by running it in your **project folder**: `docker run --rm -it -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test yourcompanyname/projectname` with parameters you need.
 
 
